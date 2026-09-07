@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Two states are enough</title>
+    <script>
+      ;(() => {
+        const saved = localStorage.getItem('dark-mode-toggle-demo')
+        document.documentElement.dataset.theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      })()
+    </script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -12,10 +20,16 @@
       <h1>Two states are enough.</h1>
       <p class="intro">Change the page when it is uncomfortable; otherwise, let the system decide.</p>
 
-      <button class="toggle" type="button" data-toggle>
-        <span aria-hidden="true" data-icon>☾</span>
-        <span data-action>Switch to dark</span>
-      </button>
+      <div class="toggle-controls">
+        <button class="toggle toggle--desktop" type="button" data-toggle>
+          <span aria-hidden="true" data-icon>☾</span>
+          <span data-action>Switch to dark</span>
+        </button>
+        <button class="toggle toggle--mobile" type="button" data-toggle>
+          <span aria-hidden="true" data-icon>☾</span>
+          <span class="visually-hidden" data-action>Switch to dark</span>
+        </button>
+      </div>
       <p class="status" aria-live="polite" data-status></p>
 
       <p class="home"><a href="https://ciaranlyons.com">CiaranLyons.com</a> colours, in miniature.</p>
