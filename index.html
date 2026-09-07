@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Two states are enough</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="demo" data-demo>
+      <p class="eyebrow">A dark-mode toggle</p>
+      <h1>Two states are enough.</h1>
+      <p class="intro">Change the page when it is uncomfortable; otherwise, let the system decide.</p>
+
+      <button class="toggle" type="button" data-toggle>
+        <span aria-hidden="true" data-icon>☾</span>
+        <span data-action>Switch to dark</span>
+      </button>
+      <p class="status" aria-live="polite" data-status></p>
+
+      <p class="home"><a href="https://ciaranlyons.com">CiaranLyons.com</a> colours, in miniature.</p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
